@@ -15,6 +15,8 @@ from decouple import config
 import django_heroku
 from pathlib import Path
 
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -26,9 +28,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = ')(1s^$8c@=9m*(yy&juurj)66vmf^&_skwjjl(#99j0@ib5tk5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['PiYi_analytics.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['piyi-analytics.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -123,12 +125,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 
-#Static directories containing general static files that are at the project level and not in static folders inside apps. the collectstatic command will collect folders inside static folders as well as folders inside directories specified in this STATIC_DIRS list  
+#Static directories containing general static files that are at the project level and not in static folders inside apps. the collectstatic command will collect folders inside apps static folders as well as folders inside directories specified in this STATIC_DIRS list  
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-    os.path.join(BASE_DIR, 'project/static'),
+    os.path.join(PROJECT_ROOT, 'static'),
 ]
-
 
 #URL to add to root of website to access static files (css, fonts, js,static images in img)
 STATIC_URL = '/static/'
@@ -136,7 +136,6 @@ STATIC_URL = '/static/'
 #Collectstatic command will collect all the folders inside static folders and put them inside this STATIC_ROOT folder
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-#STATICFILES = [os.path.join(BASE_DIR, 'static')]
 #URL to add to root of website to access user uploaded files and images
 MEDIA_URL = '/media/'
 #All user uploaded files and images will be saved in this MEDIA_ROOT folder
