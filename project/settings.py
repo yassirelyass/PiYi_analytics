@@ -28,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = ')(1s^$8c@=9m*(yy&juurj)66vmf^&_skwjjl(#99j0@ib5tk5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['piyi-analytics.herokuapp.com','127.0.0.1']
 
